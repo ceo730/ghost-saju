@@ -347,25 +347,23 @@ body{font-family:'Noto Serif KR',serif;background:#0a0a0a;color:#d4c5a9;overflow
   position:relative;
 }
 .fortune-section{margin-bottom:36px;}
-.fortune-section-title{
-  font-size:18px;color:#c4a668;margin-bottom:20px;
-  display:flex;align-items:center;gap:10px;
-  opacity:0;transform:translateY(18px);
-  transition:opacity 0.9s ease, transform 0.9s ease;
+.fortune-line{
+  font-size:15px;line-height:2;color:#c4b896;
+  margin-bottom:2px;letter-spacing:0.5px;
+  opacity:0;transform:translateY(12px);
+  transition:opacity 0.8s ease, transform 0.8s ease;
 }
-.fortune-section-title.visible{opacity:1;transform:translateY(0);}
-.fortune-section-title .hanja{
+.fortune-line.visible{opacity:1;transform:translateY(0);}
+.fortune-line.highlight{color:#d4c5a9;font-weight:500;}
+.fortune-line.accent{color:#c4a668;}
+.fortune-line.section-title{
+  font-size:18px;color:#c4a668;margin-top:36px;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.fortune-line.section-title .hanja{
   font-size:22px;color:#8b1a1a;font-weight:700;
 }
-.fortune-paragraph{
-  font-size:15px;line-height:2.2;color:#c4b896;
-  margin-bottom:12px;letter-spacing:0.5px;
-  opacity:0;transform:translateY(18px);
-  transition:opacity 0.9s ease, transform 0.9s ease;
-}
-.fortune-paragraph.visible{opacity:1;transform:translateY(0);}
-.fortune-paragraph.highlight{color:#d4c5a9;font-weight:500;}
-.fortune-paragraph.accent{color:#c4a668;}
+.fortune-line.spacer{height:14px;}
 
 .content-fade{
   height:200px;
@@ -1018,24 +1016,31 @@ function setupProductPage() {
   const infoText = `${birthInfo.year}년 ${birthInfo.month}월 ${birthInfo.day}일 · ${birthInfo.calendar} · ${birthInfo.gender}성 · ${animal}`;
   document.getElementById('birth-info-bar').textContent = infoText;
 
-  // 사주 내용
+  // 사주 내용 — 한 줄씩 분리
   const contentEl = document.getElementById('fortune-content');
   contentEl.innerHTML = '';
   data.fortuneContent.forEach(section => {
-    const sectionEl = document.createElement('div');
-    sectionEl.className = 'fortune-section';
-    let html = `<div class="fortune-section-title"><span class="hanja">${section.hanja}</span> ${section.title}</div>`;
+    // 섹션 제목
+    const titleEl = document.createElement('div');
+    titleEl.className = 'fortune-line section-title';
+    titleEl.innerHTML = `<span class="hanja">${section.hanja}</span> ${section.title}`;
+    contentEl.appendChild(titleEl);
+
     section.paragraphs.forEach(p => {
-      if (typeof p === 'string') {
-        html += `<p class="fortune-paragraph">${p.replace(/\n/g, '<br>')}</p>`;
-      } else if (p.highlight) {
-        html += `<p class="fortune-paragraph highlight">${p.text.replace(/\n/g, '<br>')}</p>`;
-      } else if (p.accent) {
-        html += `<p class="fortune-paragraph accent">${p.text.replace(/\n/g, '<br>')}</p>`;
-      }
+      const text = typeof p === 'string' ? p : p.text;
+      const cls = typeof p === 'string' ? '' : (p.highlight ? ' highlight' : ' accent');
+      const lines = text.split('\n');
+      lines.forEach(line => {
+        const lineEl = document.createElement('div');
+        lineEl.className = 'fortune-line' + cls;
+        lineEl.textContent = line;
+        contentEl.appendChild(lineEl);
+      });
+      // 문단 사이 여백
+      const spacer = document.createElement('div');
+      spacer.className = 'fortune-line spacer';
+      contentEl.appendChild(spacer);
     });
-    sectionEl.innerHTML = html;
-    contentEl.appendChild(sectionEl);
   });
 
   // 후킹 텍스트
@@ -1079,20 +1084,25 @@ function setupProductPage() {
   // CTA
   document.getElementById('cta-btn').textContent = data.ctaText;
 
-  // 문단 순차 등장 애니메이션
+  // 한 줄씩 순차 등장 애니메이션
   setTimeout(() => {
-    // 초상화 먼저
     const portrait = document.querySelector('#product .product-portrait');
     if (portrait) portrait.classList.add('visible');
 
-    // 섹션 제목 + 문단들 순차적으로
-    const items = document.querySelectorAll('#fortune-content .fortune-section-title, #fortune-content .fortune-paragraph');
-    items.forEach((el, i) => {
+    const lines = document.querySelectorAll('#fortune-content .fortune-line');
+    let delay = 800;
+    lines.forEach((el) => {
+      if (el.classList.contains('spacer')) {
+        delay += 200; // 문단 사이 잠깐 쉼
+        el.classList.add('visible');
+        return;
+      }
       setTimeout(() => {
         el.classList.add('visible');
-      }, 400 + i * 500);
+      }, delay);
+      delay += el.classList.contains('section-title') ? 900 : 600;
     });
-  }, 600);
+  }, 500);
 }
 
 // ======================== UTILS ========================

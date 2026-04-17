@@ -441,18 +441,6 @@ body{font-family:'Gowun Batang',serif;background:#0a0a0a;color:#d4c5a9;overflow-
   font-size:11px;color:#5a5245;margin-top:6px;
 }
 
-.phone-section{margin-bottom:20px;}
-.phone-label{font-size:12px;color:#6b5d4d;margin-bottom:8px;}
-.phone-input{
-  width:100%;padding:14px 16px;text-align:center;
-  background:#1a1714;color:#c4b896;
-  border:1px solid rgba(196,166,104,0.2);
-  border-radius:4px;font-size:16px;
-  font-family:'Pretendard',sans-serif;
-  letter-spacing:2px;
-}
-.phone-input::placeholder{color:#4a4438;}
-
 .cta-btn{
   width:100%;padding:18px;
   background:linear-gradient(135deg, #a01515, #c41919);
@@ -628,7 +616,7 @@ body{font-family:'Gowun Batang',serif;background:#0a0a0a;color:#d4c5a9;overflow-
       운명의 흐름을 읽는 중<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span>
     </p>
     <p class="review-section-title">실시간 리뷰보기</p>
-    <p class="review-section-sub">사주 풀이 후 누구나 남길 수 있는 네돈내산 리얼 리뷰 입니다</p>
+    <p class="review-section-sub">사주 풀이 후 누구나 남길 수 있는<br>내돈내산 리얼 리뷰 입니다</p>
     <div class="review-carousel" id="review-carousel"></div>
   </div>
 </div>
@@ -662,12 +650,7 @@ body{font-family:'Gowun Batang',serif;background:#0a0a0a;color:#d4c5a9;overflow-
 
     <div class="product-reviews" id="product-reviews-section"></div>
 
-    <div class="phone-section">
-      <div class="phone-label">결제 후 카카오톡으로 결과 링크를 보내드립니다</div>
-      <input type="tel" class="phone-input" id="phone-input" placeholder="010-0000-0000" maxlength="13" oninput="formatPhone(this)">
-    </div>
-
-    <button class="cta-btn" id="cta-btn"></button>
+    <button class="cta-btn" id="cta-btn" onclick="location.href='https://www.groble.im/products/9jWRhi/payment/6138'"></button>
     <div class="cta-notice">지금 결제하면 새로 풀이를 볼 수 있습니다</div>
   </div>
 </div>
@@ -698,8 +681,8 @@ const DATA = {
       { text: '본인뿐입니다."', cls: 'quote' },
     ],
     origin: '※ 故 적명 스님의 생전 풀이 방식을 바탕으로 재구성되었습니다.',
-    disclaimer: '해당 사주풀이는 정통 명리학 기반 사주와 약간의 개인적 해석에 차이가 존재하며, 특히 운을 보는 부분에 있어서는 불교적 윤회 관점이 가미되었음을 미리 알려드립니다.',
-    disclaimerSub: '정통 사주학 관점의 풀이를 보시는 분들은 다른 곳으로의 방문을 추천드립니다.',
+    disclaimer: '해당 사주풀이는 정통 명리학 기반 사주와\n약간의 개인적 해석에 차이가 존재하며,\n특히 운을 보는 부분에 있어서는\n불교적 윤회 관점이 가미되었음을\n미리 알려드립니다.',
+    disclaimerSub: '정통 사주학 관점의 풀이를 보시는 분들은\n다른 곳으로의 방문을 추천드립니다.',
     fortuneContent: [
       {
         hanja: '魂', title: '당신의 전생',
@@ -726,16 +709,16 @@ const DATA = {
     ],
     hook: '전생에서 넘어온 숙제의 정체,\n그리고 이 생에서 풀리는 순서를\n아래에 모두 풀어놓았습니다.',
     toc: [
-      { title: '전생에서 넘어온 숙제의 정체', desc: '이유 없이 반복되는 고통에는 이유가 있습니다. 전생에서 못 끝낸 것이 이 생에 남아있습니다.' },
-      { title: '숙제를 끝내는 법', desc: '피하면 다음 생으로 넘어갑니다. 이 생에서 끝내는 순서를 알려드리겠습니다.' },
-      { title: '이 생에서 벌게 될 돈의 크기', desc: '전생에서 쌓은 복의 크기가 이 생의 돈 그릇을 정합니다.' },
-      { title: '돈이 열리는 시기', desc: '숙제가 풀리기 시작하면 돈이 따라옵니다. 그 순서를 거스르면 안 됩니다.' },
-      { title: '전생에서 이어진 인연이 나타나는 시기', desc: '이 생에서 만날 인연 중, 전생에서 건너온 인연이 있습니다. 그 사람이 오는 때.' },
-      { title: '복인 줄 알았는데 빚이고, 빚인 줄 알았는데 복인 것', desc: '눈앞의 기회가 전생의 복인지, 갚아야 할 빚인지 구분하는 법.' },
-      { title: '같은 실수를 반복하는 이유', desc: '이 생의 습관이 아닙니다. 전생에서 넘어온 패턴입니다. 끊는 법을 알려드리겠습니다.' },
-      { title: '귀인이 나타나는 시기 3번', desc: '전생에서 은혜를 나눈 사람이 이 생에서 귀인으로 옵니다. 그 시기를 놓치지 마십시오.' },
-      { title: '건강이 흔들리는 시기와 대응법', desc: '전생의 숙제가 풀리지 않으면 몸이 먼저 무거워집니다. 그 시기를 미리 알려드리겠습니다.' },
-      { title: '내 인생의 황금기', desc: '숙제가 끝난 뒤에 오는 시간. 전생의 복이 이 생에서 빛을 보는 때입니다.' },
+      { title: '전생에서 넘어온 숙제의 정체', desc: '이유 없이 반복되는 고통에는 이유가 있습니다.<br>전생에서 못 끝낸 것이 이 생에 남아있습니다.' },
+      { title: '숙제를 끝내는 법', desc: '피하면 다음 생으로 넘어갑니다.<br>이 생에서 끝내는 순서를 알려드리겠습니다.' },
+      { title: '이 생에서 벌게 될 돈의 크기', desc: '전생에서 쌓은 복의 크기가<br>이 생의 돈 그릇을 정합니다.' },
+      { title: '돈이 열리는 시기', desc: '숙제가 풀리기 시작하면 돈이 따라옵니다.<br>그 순서를 거스르면 안 됩니다.' },
+      { title: '전생에서 이어진 인연이 나타나는 시기', desc: '이 생에서 만날 인연 중,<br>전생에서 건너온 인연이 있습니다. 그 사람이 오는 때.' },
+      { title: '복인 줄 알았는데 빚이고, 빚인 줄 알았는데 복인 것', desc: '눈앞의 기회가 전생의 복인지,<br>갚아야 할 빚인지 구분하는 법.' },
+      { title: '같은 실수를 반복하는 이유', desc: '이 생의 습관이 아닙니다. 전생에서 넘어온 패턴입니다.<br>끊는 법을 알려드리겠습니다.' },
+      { title: '귀인이 나타나는 시기 3번', desc: '전생에서 은혜를 나눈 사람이 이 생에서 귀인으로 옵니다.<br>그 시기를 놓치지 마십시오.' },
+      { title: '건강이 흔들리는 시기와 대응법', desc: '전생의 숙제가 풀리지 않으면 몸이 먼저 무거워집니다.<br>그 시기를 미리 알려드리겠습니다.' },
+      { title: '내 인생의 황금기', desc: '숙제가 끝난 뒤에 오는 시간.<br>전생의 복이 이 생에서 빛을 보는 때입니다.' },
     ],
     priceLabel1: '적명 스님 대면 사주 1회',
     priceOriginal: '₩500,000',
@@ -770,8 +753,8 @@ const DATA = {
       { text: '틀려서 일어난 사람은 없었다고 합니다.', cls: 'dim' },
     ],
     origin: '※ 故 최명화 보살의 생전 풀이 방식을 바탕으로 재구성되었습니다.',
-    disclaimer: '해당 사주풀이는 정통 명리학 기반 사주와 약간의 개인적 해석에 차이가 존재하며, 특히 운을 보는 부분에 있어서는 토속적인 관점이 가미되었음을 미리 알려드립니다.',
-    disclaimerSub: '정통 사주학 관점의 풀이를 보시는 분들은 다른 곳으로의 방문을 추천드립니다.',
+    disclaimer: '해당 사주풀이는 정통 명리학 기반 사주와\n약간의 개인적 해석에 차이가 존재하며,\n특히 운을 보는 부분에 있어서는\n토속적인 관점이 가미되었음을\n미리 알려드립니다.',
+    disclaimerSub: '정통 사주학 관점의 풀이를 보시는 분들은\n다른 곳으로의 방문을 추천드립니다.',
     fortuneContent: [
       {
         hanja: '魂', title: '니란 사람',
@@ -803,16 +786,16 @@ const DATA = {
     ],
     hook: '니 앞길을 막고 있는 흉한 놈의 정체,\n그리고 잡는 법까지\n아래에 전부 풀어놨다.',
     toc: [
-      { title: '내 앞길을 막고 있는 흉한 놈의 정체', desc: '될 일도 안 되게 만드는 놈이 있다. 그놈이 뭔지, 언제 끼어들었는지 다 보인다.' },
-      { title: '이놈을 잡는 법', desc: '이놈은 모르면 당하고, 알면 잡는다. 잡는 때가 있고, 잡는 순서가 있다.' },
-      { title: '내가 벌게 될 돈의 크기', desc: '니 돈 그릇은 크다. 근데 이놈이 구멍을 내놓고 있어서 차는 족족 새고 있다.' },
-      { title: '돈이 열리는 시기', desc: '이놈이 힘이 빠지는 해가 있다. 그 해에 돈문이 열린다. 놓치면 다시 막힌다.' },
-      { title: '진짜 인연이 들어오는 시기', desc: '이놈이 끼어있으면 좋은 사람이 와도 깨진다. 이놈이 물러나는 해에 인연이 붙는다.' },
-      { title: '눈앞의 기회가 진짜인지 가짜인지', desc: '이놈이 미끼를 던질 때가 있다. 번쩍이는데 잡으면 빈손이다. 구분하는 법을 알려주겠다.' },
-      { title: '같은 실수를 반복하는 이유', desc: '니 탓이 아니다. 이놈이 판단을 흐리는 타이밍이 정해져 있다.' },
-      { title: '귀인이 나타나는 시기 3번', desc: '이놈 잡는 걸 도와줄 사람이 온다. 그 시기가 딱 3번 보인다.' },
-      { title: '건강이 흔들리는 시기', desc: '이놈이 기운을 빨아먹는 해에 몸이 먼저 무너진다. 언제인지 다 보인다.' },
-      { title: '내 인생의 황금기', desc: '이놈이 완전히 물러나는 해. 그때부터 니 인생은 니 거다.' },
+      { title: '내 앞길을 막고 있는 흉한 놈의 정체', desc: '될 일도 안 되게 만드는 놈이 있다.<br>그놈이 뭔지, 언제 끼어들었는지 다 보인다.' },
+      { title: '이놈을 잡는 법', desc: '이놈은 모르면 당하고, 알면 잡는다.<br>잡는 때가 있고, 잡는 순서가 있다.' },
+      { title: '내가 벌게 될 돈의 크기', desc: '니 돈 그릇은 크다.<br>근데 이놈이 구멍을 내놓고 있어서 차는 족족 새고 있다.' },
+      { title: '돈이 열리는 시기', desc: '이놈이 힘이 빠지는 해가 있다.<br>그 해에 돈문이 열린다. 놓치면 다시 막힌다.' },
+      { title: '진짜 인연이 들어오는 시기', desc: '이놈이 끼어있으면 좋은 사람이 와도 깨진다.<br>이놈이 물러나는 해에 인연이 붙는다.' },
+      { title: '눈앞의 기회가 진짜인지 가짜인지', desc: '이놈이 미끼를 던질 때가 있다. 번쩍이는데 잡으면 빈손이다.<br>구분하는 법을 알려주겠다.' },
+      { title: '같은 실수를 반복하는 이유', desc: '니 탓이 아니다.<br>이놈이 판단을 흐리는 타이밍이 정해져 있다.' },
+      { title: '귀인이 나타나는 시기 3번', desc: '이놈 잡는 걸 도와줄 사람이 온다.<br>그 시기가 딱 3번 보인다.' },
+      { title: '건강이 흔들리는 시기', desc: '이놈이 기운을 빨아먹는 해에 몸이 먼저 무너진다.<br>언제인지 다 보인다.' },
+      { title: '내 인생의 황금기', desc: '이놈이 완전히 물러나는 해.<br>그때부터 니 인생은 니 거다.' },
     ],
     priceLabel1: '최명화 보살 대면 신점 1회',
     priceOriginal: '₩500,000',
@@ -900,8 +883,8 @@ function selectCharacter(type) {
 // ======================== DISCLAIMER ========================
 function showDisclaimer() {
   const data = DATA[selectedCharacter];
-  document.getElementById('disclaimer-text').textContent = data.disclaimer;
-  document.getElementById('disclaimer-sub').textContent = data.disclaimerSub;
+  document.getElementById('disclaimer-text').innerHTML = data.disclaimer.replace(/\n/g, '<br>');
+  document.getElementById('disclaimer-sub').innerHTML = data.disclaimerSub.replace(/\n/g, '<br>');
   document.getElementById('disclaimer-modal').classList.add('active');
 }
 
@@ -1104,17 +1087,6 @@ function setupProductPage() {
       delay += el.classList.contains('section-title') ? 900 : 600;
     });
   }, 500);
-}
-
-// ======================== UTILS ========================
-function formatPhone(input) {
-  let val = input.value.replace(/[^0-9]/g, '');
-  if (val.length > 3 && val.length <= 7) {
-    val = val.slice(0, 3) + '-' + val.slice(3);
-  } else if (val.length > 7) {
-    val = val.slice(0, 3) + '-' + val.slice(3, 7) + '-' + val.slice(7, 11);
-  }
-  input.value = val;
 }
 
 // ======================== INIT ========================
